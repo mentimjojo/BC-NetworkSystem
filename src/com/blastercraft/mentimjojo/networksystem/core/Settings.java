@@ -1,5 +1,7 @@
 package com.blastercraft.mentimjojo.networksystem.core;
 
+import java.util.ArrayList;
+
 public class Settings {
 
     /*
@@ -12,5 +14,11 @@ public class Settings {
 
     // Plugin version
     public static String pluginVersion;
+
+    // Server name where plugin is running
+    public static String pluginServerName;
+
+    // Servers where selector is not in hotbar
+    public static ArrayList<String> exServers = new ArrayList<String>();
 
 }

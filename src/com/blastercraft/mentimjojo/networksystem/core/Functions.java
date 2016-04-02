@@ -1,10 +1,10 @@
 package com.blastercraft.mentimjojo.networksystem.core;
 
-
 import com.blastercraft.mentimjojo.networksystem.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.ConsoleCommandSender;
+import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginDescriptionFile;
@@ -20,6 +20,16 @@ public class Functions {
     private static ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
 
     /*
+    * Startup some functions
+     */
+    public static void startupFunctions(Main main){
+        // Get general data
+        getGeneralData(main);
+        // Ex servers
+        addExServers();
+    }
+
+    /*
     * Send console messages also with colors
      */
     public static void sendConsoleMsg(String text){
@@ -27,6 +37,16 @@ public class Functions {
         text = stringColors(text);
         // Send text in console
         console.sendMessage(Settings.pluginPrefix + text);
+    }
+
+    /*
+    * Send message to player
+     */
+    public static void sendPlayerMsg(Player player, String text){
+        // Set colors
+        text = stringColors(text);
+        // Send message
+        player.sendMessage(Settings.pluginPrefix + text);
     }
 
     /*
@@ -40,13 +60,24 @@ public class Functions {
     }
 
     /*
-    * Get plugin.yml data
+    * Add ex servers
      */
-    public static void getPLYML(Main main){
+    private static void addExServers(){
+        // Add servers
+        Settings.exServers.add("survival-1");
+        Settings.exServers.add("survival-2");
+    }
+
+    /*
+        * Get plugin.yml data
+         */
+    private static void getGeneralData(Main main){
         // Get plugin.yml
         PluginDescriptionFile pdf = main.getDescription();
         // Set the version
         Settings.pluginVersion = pdf.getVersion();
+        // Get Bukkit server name
+        Settings.pluginServerName = Bukkit.getServerName();
     }
 
     /*
