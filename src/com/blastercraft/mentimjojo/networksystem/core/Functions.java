@@ -1,11 +1,13 @@
 package com.blastercraft.mentimjojo.networksystem.core;
 
 
+import com.blastercraft.mentimjojo.networksystem.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.Plugin;
+import org.bukkit.plugin.PluginDescriptionFile;
 
 public class Functions {
 
@@ -35,6 +37,16 @@ public class Functions {
         text = ChatColor.translateAlternateColorCodes('&', text);
         // Return text
         return text;
+    }
+
+    /*
+    * Get plugin.yml data
+     */
+    public static void getPLYML(Main main){
+        // Get plugin.yml
+        PluginDescriptionFile pdf = main.getDescription();
+        // Set the version
+        Settings.pluginVersion = pdf.getVersion();
     }
 
     /*

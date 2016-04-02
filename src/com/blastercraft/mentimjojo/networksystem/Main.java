@@ -11,6 +11,8 @@ public class Main extends JavaPlugin {
      */
     @Override
     public void onEnable(){
+        // Get plugin yml
+        Functions.getPLYML(this);
         // Send console message
         Functions.sendConsoleMsg("NetworkSystem By Mentimjojo (Version: " + Settings.pluginVersion + ") is Enabled.");
     }

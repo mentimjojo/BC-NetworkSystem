@@ -11,6 +11,6 @@ public class Settings {
     public static String pluginPrefix = Functions.stringColors("&F[&BBlasterCraft&F] ");
 
     // Plugin version
-    public static String pluginVersion = "0.0.1";
+    public static String pluginVersion;
 
 }
