@@ -67,6 +67,7 @@ public class Functions {
         // Add servers
         Settings.exServers.add("survival-1");
         Settings.exServers.add("survival-2");
+        Settings.exServers.add("bouw-1");
         // Add lobbys
         Settings.Lobbys.add("lobby-1");
     }
