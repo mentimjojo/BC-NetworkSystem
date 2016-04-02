@@ -1,7 +1,5 @@
 package com.blastercraft.mentimjojo.networksystem.core;
 
-import org.bukkit.ChatColor;
-
 public class Settings {
 
     /*

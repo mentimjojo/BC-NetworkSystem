@@ -6,9 +6,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin {
 
-
-
-
     /*
     * On Enable runs when running plugin
      */
@@ -26,6 +23,5 @@ public class Main extends JavaPlugin {
         // Send console message
         Functions.sendConsoleMsg("NetworkSystem By Mentimjojo (Version: " + Settings.pluginVersion + ") is Disabled.");
     }
-
 
 }
