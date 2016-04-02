@@ -21,4 +21,7 @@ public class Settings {
     // Servers where selector is not in hotbar
     public static ArrayList<String> exServers = new ArrayList<String>();
 
+    // Server lobbys
+    public static ArrayList<String> Lobbys = new ArrayList<String>();
+
 }

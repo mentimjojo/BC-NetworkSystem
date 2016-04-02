@@ -1,6 +1,7 @@
 package com.blastercraft.mentimjojo.networksystem.core;
 
 import com.blastercraft.mentimjojo.networksystem.Main;
+import com.blastercraft.mentimjojo.networksystem.selector.Selector;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.ConsoleCommandSender;
@@ -66,6 +67,8 @@ public class Functions {
         // Add servers
         Settings.exServers.add("survival-1");
         Settings.exServers.add("survival-2");
+        // Add lobbys
+        Settings.Lobbys.add("lobby-1");
     }
 
     /*
