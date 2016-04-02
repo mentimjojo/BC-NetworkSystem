@@ -50,12 +50,16 @@ public class Selector {
         Items.createMenuItem(invSelector, Material.SKULL_ITEM, 1, 5, "&A&LMobarena", new String[]{"&FYour are being hunted by mobs...", "&FKill them all!"});
         // Add capturetheflag
         Items.createMenuItem(invSelector, Material.WOOL, 1, 7, "&A&LCapture The Flag", new String[]{"&FCapture the enemy's flag but watch out", "&Fthat your own flag is getting captured!"});
+        // Set back to hub item when not on hub
+        if(!Settings.Lobbys.contains(Settings.pluginServerName)){
+            // Add back to hub item
+            Items.createMenuItem(invSelector, Material.COMPASS, 1, 52, "&A&LBack to the hub", new String[]{"&FGo back to the hub"});
+        }
+        // Check if back or exit
         if(!Settings.exServers.contains(Settings.pluginServerName)) {
             // Add close item
             Items.createMenuItem(invSelector, Material.IRON_DOOR, 1, 53, "&A&LExit selector", new String[]{"&FExit the selector menu"});
         } else {
-            // Add back to hub item
-            Items.createMenuItem(invSelector, Material.COMPASS, 1, 52, "&A&LBack to the hub", new String[]{"&FGo back to the hub"});
             // Add back item
             Items.createMenuItem(invSelector, Material.IRON_DOOR, 1, 53, "&A&LBack to the network menu", new String[]{"&FGo back to the network menu"});
         }
