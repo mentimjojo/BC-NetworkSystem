@@ -2,10 +2,11 @@ package com.blastercraft.mentimjojo.networksystem.selector;
 
 import com.blastercraft.mentimjojo.networksystem.Main;
 import com.blastercraft.mentimjojo.networksystem.core.*;
+import com.blastercraft.mentimjojo.networksystem.networkMenu.networkMenu;
 import com.blastercraft.mentimjojo.networksystem.selector.servers.Ctf;
 import com.blastercraft.mentimjojo.networksystem.selector.servers.Paintball;
 import com.blastercraft.mentimjojo.networksystem.selector.servers.Survival;
-import org.bukkit.ChatColor;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -17,12 +18,12 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 
-public class Events implements Listener {
+public class selectorEvents implements Listener {
 
     // Main main;
     Main main;
 
-    public Events(Main plugin){
+    public selectorEvents(Main plugin){
         this.main = plugin;
     }
 
@@ -46,12 +47,14 @@ public class Events implements Listener {
     public void onPlayerInteract(PlayerInteractEvent event){
         // Get player
         Player player = event.getPlayer();
-        // Check if selector item
-        if((event.getAction() != Action.PHYSICAL) && player.getItemInHand().isSimilar(Selector.itemSelector)){
-            // Cancel event
-            event.setCancelled(true);
-            // Open menu
-            Selector.openSelector(player);
+        if(!Settings.exServers.contains(Settings.pluginServerName)) {
+            // Check if selector item
+            if ((event.getAction() != Action.PHYSICAL) && player.getItemInHand().isSimilar(Selector.itemSelector)) {
+                // Cancel event
+                event.setCancelled(true);
+                // Open menu
+                Selector.openSelector(player);
+            }
         }
     }
 
@@ -93,9 +96,18 @@ public class Events implements Listener {
                     player.closeInventory();
                     // Open servers
                     Ctf.openMenu(player);
+                } else if(clickedItem.getType() == Material.COMPASS){
+                    // Close inventory
+                    player.closeInventory();
+                    // Back to hub
+                    Channels.teleportToServer(player, "&A We are sending you to the hub.", "lobby-1");
                 } else if (clickedItem.getType() == Material.IRON_DOOR) {
                     // Close selector
                     player.closeInventory();
+                    // Check if back
+                    if(Settings.exServers.contains(Settings.pluginServerName)) {
+                        player.openInventory(networkMenu.networkInv);
+                    }
                 }
             }
         }

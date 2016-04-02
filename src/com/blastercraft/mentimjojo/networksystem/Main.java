@@ -5,9 +5,11 @@ import com.blastercraft.mentimjojo.networksystem.events.lobbySpecicals;
 import com.blastercraft.mentimjojo.networksystem.events.playerJoinQuit;
 import com.blastercraft.mentimjojo.networksystem.core.*;
 import com.blastercraft.mentimjojo.networksystem.friends.*;
-import com.blastercraft.mentimjojo.networksystem.friends.Events;
+import com.blastercraft.mentimjojo.networksystem.networkMenu.networkMenu;
+import com.blastercraft.mentimjojo.networksystem.networkMenu.networkMenuEvents;
 import com.blastercraft.mentimjojo.networksystem.selector.*;
 import com.blastercraft.mentimjojo.networksystem.toggler.Toggler;
+import com.blastercraft.mentimjojo.networksystem.toggler.togglerEvents;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin {
@@ -24,17 +26,20 @@ public class Main extends JavaPlugin {
     // Friends
     Friends friends;
 
+    // Networkmenu
+    networkMenu networkMenu;
+
     /*
     * On Enable runs when running plugin
      */
     @Override
     public void onEnable(){
+        // Get plugin yml
+        Functions.startupFunctions(this);
         // Register global events
         registerEvents();
         // Register BungeeCord channel
         getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
-        // Get plugin yml
-        Functions.startupFunctions(this);
         // Register classes
         registerClasses();
         // Send console message
@@ -63,6 +68,8 @@ public class Main extends JavaPlugin {
         toggler =  new Toggler(this);
         // Friends item
         friends = new Friends(this);
+        // Network menu
+        networkMenu = new networkMenu(this);
     }
 
     /*
@@ -70,14 +77,15 @@ public class Main extends JavaPlugin {
      */
     public void registerEvents(){
         // Normal join/quit events
-        Functions.registerEvents(this, new playerJoinQuit());
+        Functions.registerEvents(this, new playerJoinQuit(), new selectorEvents(this), new friendsEvents());
 
         // Block inventory/weather
         if(!Settings.exServers.contains(Settings.pluginServerName)){
-            Functions.registerEvents(this, new blockInvMovement(), new Events());
+            Functions.registerEvents(this, new blockInvMovement(), new togglerEvents(this));
+        } else {
+            Functions.registerEvents(this, new networkMenuEvents());
         }
 
-        // Lobby specs
         if(Settings.Lobbys.contains(Settings.pluginServerName)){
             Functions.registerEvents(this, new lobbySpecicals());
         }

@@ -1,6 +1,5 @@
 package com.blastercraft.mentimjojo.networksystem.core;
 
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;

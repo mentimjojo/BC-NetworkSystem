@@ -2,17 +2,8 @@ package com.blastercraft.mentimjojo.networksystem.toggler;
 
 import com.blastercraft.mentimjojo.networksystem.Main;
 import com.blastercraft.mentimjojo.networksystem.core.Functions;
-import com.blastercraft.mentimjojo.networksystem.core.Items;
-import com.blastercraft.mentimjojo.networksystem.core.Settings;
-import com.blastercraft.mentimjojo.networksystem.selector.*;
-import com.blastercraft.mentimjojo.networksystem.selector.Events;
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.block.Action;
-import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -39,8 +30,6 @@ public class Toggler {
         setupHide();
         // Show
         setupShow();
-        // Register event
-        Functions.registerEvents(main, new com.blastercraft.mentimjojo.networksystem.toggler.Events(main));
     }
 
     public static void setupHide() {

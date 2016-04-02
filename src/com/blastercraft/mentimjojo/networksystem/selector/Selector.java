@@ -15,7 +15,7 @@ import org.bukkit.inventory.ItemStack;
 public class Selector {
 
     // Selector item
-    static ItemStack itemSelector;
+    public static ItemStack itemSelector;
 
     // Selector inventory
     public static Inventory invSelector;
@@ -27,7 +27,7 @@ public class Selector {
         // Get item selector
         itemSelector = Items.createItem(Material.NAME_TAG, 1, "&B&LServer Selector", new String[]{"&FSelect the server you want to play on."});
         // Register selector events
-        Functions.registerEvents(main, new Events(main), new Paintball(), new Survival(), new Ctf());
+        Functions.registerEvents(main, new Paintball(), new Survival(), new Ctf());
         // Setup inventory
         setupInventory();
         // Setup server menus
@@ -50,8 +50,15 @@ public class Selector {
         Items.createMenuItem(invSelector, Material.SKULL_ITEM, 1, 5, "&A&LMobarena", new String[]{"&FYour are being hunted by mobs...", "&FKill them all!"});
         // Add capturetheflag
         Items.createMenuItem(invSelector, Material.WOOL, 1, 7, "&A&LCapture The Flag", new String[]{"&FCapture the enemy's flag but watch out", "&Fthat your own flag is getting captured!"});
-        // Add close item
-        Items.createMenuItem(invSelector, Material.IRON_DOOR, 1, 53, "&A&LExit selector", new String[]{"&FExit the selector menu"});
+        if(!Settings.exServers.contains(Settings.pluginServerName)) {
+            // Add close item
+            Items.createMenuItem(invSelector, Material.IRON_DOOR, 1, 53, "&A&LExit selector", new String[]{"&FExit the selector menu"});
+        } else {
+            // Add back to hub item
+            Items.createMenuItem(invSelector, Material.COMPASS, 1, 52, "&A&LBack to the hub", new String[]{"&FGo back to the hub"});
+            // Add back item
+            Items.createMenuItem(invSelector, Material.IRON_DOOR, 1, 53, "&A&LBack to the network menu", new String[]{"&FGo back to the network menu"});
+        }
     }
 
     /*

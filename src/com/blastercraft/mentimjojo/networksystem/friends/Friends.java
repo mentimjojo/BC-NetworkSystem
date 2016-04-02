@@ -2,6 +2,7 @@ package com.blastercraft.mentimjojo.networksystem.friends;
 
 import com.blastercraft.mentimjojo.networksystem.Main;
 import com.blastercraft.mentimjojo.networksystem.core.Functions;
+import com.blastercraft.mentimjojo.networksystem.core.Settings;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -15,7 +16,7 @@ public class Friends {
     Main main;
 
     // ItemStack skull
-    static ItemStack skull;
+    public static ItemStack skull;
 
     /*
     * Register class
@@ -44,7 +45,9 @@ public class Friends {
         sm.setLore(lore);
         // Set meta
         skull.setItemMeta(sm);
-        // Set in inventory
-        player.getInventory().setItem(4, skull);
+        if(!Settings.exServers.contains(Settings.pluginServerName)) {
+            // Set in inventory
+            player.getInventory().setItem(4, skull);
+        }
     }
 }

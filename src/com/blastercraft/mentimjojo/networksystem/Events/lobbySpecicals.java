@@ -1,5 +1,6 @@
 package com.blastercraft.mentimjojo.networksystem.events;
 
+import com.blastercraft.mentimjojo.networksystem.core.Functions;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;

@@ -13,12 +13,12 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 
-public class Events implements Listener {
+public class togglerEvents implements Listener {
 
     // Main main;
     Main main;
 
-    public Events(Main plugin){
+    public togglerEvents(Main plugin){
         this.main = plugin;
     }
 
