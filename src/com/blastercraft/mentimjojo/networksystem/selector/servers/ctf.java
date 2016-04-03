@@ -50,7 +50,7 @@ public class Ctf implements Listener {
                     player.closeInventory();
                     // Send to right server
                     if (clickedItem.getItemMeta().getDisplayName().equals("Server 1")) {
-                        Channels.teleportToServer(player, "&AWe are sending you to Capture The Flag-1", "ctf-1");
+                        Channels.teleportToServer(player, "We are sending you to Capture The Flag-1", "ctf-1");
                     }
                 } else if (clickedItem.getType() == Material.IRON_DOOR) {
                     // Cancel event

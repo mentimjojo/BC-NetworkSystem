@@ -1,7 +1,6 @@
 package com.blastercraft.mentimjojo.networksystem.core;
 
 import com.blastercraft.mentimjojo.networksystem.Main;
-import com.blastercraft.mentimjojo.networksystem.selector.Selector;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.ConsoleCommandSender;
@@ -9,6 +8,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginDescriptionFile;
+
+import java.util.Random;
 
 public class Functions {
 
@@ -73,8 +74,8 @@ public class Functions {
     }
 
     /*
-        * Get plugin.yml data
-         */
+     * Get plugin.yml data
+     */
     private static void getGeneralData(Main main){
         // Get plugin.yml
         PluginDescriptionFile pdf = main.getDescription();
@@ -93,4 +94,16 @@ public class Functions {
         }
     }
 
+
+    /*
+    * Get random Lobby
+     */
+    public static String getRandomLobby(){
+        // New random
+        Random rand = new Random();
+        // Next
+        int next = rand.nextInt(Settings.Lobbys.size());
+        // Return lobby
+        return Settings.Lobbys.get(next);
+    }
 }

@@ -1,6 +1,7 @@
 package com.blastercraft.mentimjojo.networksystem.commands;
 
 import com.blastercraft.mentimjojo.networksystem.core.Channels;
+import com.blastercraft.mentimjojo.networksystem.core.Functions;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -15,7 +16,7 @@ public class cmdHub implements CommandExecutor{
             Player player = (Player) sender;
 
             // Send back to hub
-            Channels.teleportToServer(player, "We are sending you back to the hub.", "lobby-1");
+            Channels.teleportToServer(player, "We are sending you back to the hub.", Functions.getRandomLobby());
         }
         // When nothing
         return true;
