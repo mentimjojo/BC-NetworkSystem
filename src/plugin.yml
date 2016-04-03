@@ -3,3 +3,8 @@ version: 0.0.1
 author: mentimjojo
 main: com.blastercraft.mentimjojo.networksystem.Main
 website: www.blastercraft.net
+
+commands:
+  hub:
+    description: Sends you back to the hub.
+    usage: /hub

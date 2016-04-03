@@ -100,7 +100,7 @@ public class selectorEvents implements Listener {
                     // Close inventory
                     player.closeInventory();
                     // Back to hub
-                    Channels.teleportToServer(player, "&A We are sending you to the hub.", "lobby-1");
+                    Channels.teleportToServer(player, "We are sending you to the hub.", "lobby-1");
                 } else if (clickedItem.getType() == Material.IRON_DOOR) {
                     // Close selector
                     player.closeInventory();

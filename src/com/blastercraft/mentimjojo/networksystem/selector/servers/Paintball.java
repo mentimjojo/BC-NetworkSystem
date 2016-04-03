@@ -50,7 +50,7 @@ public class Paintball implements Listener {
                     player.closeInventory();
                     // Send to right server
                     if (clickedItem.getItemMeta().getDisplayName().equals("Server 1")) {
-                        Channels.teleportToServer(player, "&AWe are sending you to paintball-1", "paintball-1");
+                        Channels.teleportToServer(player, "We are sending you to paintball-1", "paintball-1");
                     }
                 } else if (clickedItem.getType() == Material.IRON_DOOR) {
                     // Cancel event

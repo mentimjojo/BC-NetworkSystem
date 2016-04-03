@@ -26,13 +26,6 @@ public class networkMenuEvents implements Listener {
     public void onJoin(PlayerJoinEvent event){
         // Give item
         networkMenu.giveNetworkMenuItem(event.getPlayer());
-        // Check in in
-        if(Settings.exServers.contains(Settings.pluginServerName)) {
-            // Setup head
-            Friends.skullHead(event.getPlayer());
-            // Set item friends
-            networkMenu.networkInv.setItem(3, Friends.skull);
-        }
     }
 
     /*
@@ -47,6 +40,13 @@ public class networkMenuEvents implements Listener {
         if((event.getAction() != Action.PHYSICAL) && player.getItemInHand().isSimilar(networkMenu.networkItem)){
             // Cancel event
             event.setCancelled(true);
+            // Check in in
+            if(Settings.exServers.contains(Settings.pluginServerName)) {
+                // Setup head
+                Friends.skullHead(event.getPlayer());
+                // Set item friends
+                networkMenu.networkInv.setItem(3, Friends.skull);
+            }
             // Open menu
             player.openInventory(networkMenu.networkInv);
         }

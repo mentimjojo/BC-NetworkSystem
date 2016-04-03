@@ -51,9 +51,9 @@ public class Survival implements Listener {
                     player.closeInventory();
                     // Send to right server
                     if (clickedItem.getItemMeta().getDisplayName().equals("Server 1")) {
-                        Channels.teleportToServer(player, "&AWe are sending you to survival-1", "survival-1");
+                        Channels.teleportToServer(player, "We are sending you to survival-1", "survival-1");
                     } else if (clickedItem.getItemMeta().getDisplayName().equals("Server 2")) {
-                        Channels.teleportToServer(player, "&AWe are sending you to survival-2.", "survival-2");
+                        Channels.teleportToServer(player, "We are sending you to survival-2.", "survival-2");
                     }
                 } else if (clickedItem.getType() == Material.IRON_DOOR) {
                     // Cancel event

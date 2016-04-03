@@ -1,15 +1,12 @@
 package com.blastercraft.mentimjojo.networksystem;
 
-import com.blastercraft.mentimjojo.networksystem.events.blockInvMovement;
-import com.blastercraft.mentimjojo.networksystem.events.lobbySpecicals;
-import com.blastercraft.mentimjojo.networksystem.events.playerJoinQuit;
+import com.blastercraft.mentimjojo.networksystem.commands.cmdHub;
+import com.blastercraft.mentimjojo.networksystem.events.*;
 import com.blastercraft.mentimjojo.networksystem.core.*;
 import com.blastercraft.mentimjojo.networksystem.friends.*;
-import com.blastercraft.mentimjojo.networksystem.networkMenu.networkMenu;
-import com.blastercraft.mentimjojo.networksystem.networkMenu.networkMenuEvents;
+import com.blastercraft.mentimjojo.networksystem.networkMenu.*;
 import com.blastercraft.mentimjojo.networksystem.selector.*;
-import com.blastercraft.mentimjojo.networksystem.toggler.Toggler;
-import com.blastercraft.mentimjojo.networksystem.toggler.togglerEvents;
+import com.blastercraft.mentimjojo.networksystem.toggler.*;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin {
@@ -42,6 +39,8 @@ public class Main extends JavaPlugin {
         getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
         // Register classes
         registerClasses();
+        // Register commands
+        registerCommands();
         // Send console message
         Functions.sendConsoleMsg("NetworkSystem By Mentimjojo (Version: " + Settings.pluginVersion + ") is Enabled on Server : " + Settings.pluginServerName);
     }
@@ -89,5 +88,12 @@ public class Main extends JavaPlugin {
         if(Settings.Lobbys.contains(Settings.pluginServerName)){
             Functions.registerEvents(this, new lobbySpecicals());
         }
+    }
+
+    /*
+    * Register commands
+     */
+    public void registerCommands(){
+        this.getCommand("hub").setExecutor(new cmdHub());
     }
 }
