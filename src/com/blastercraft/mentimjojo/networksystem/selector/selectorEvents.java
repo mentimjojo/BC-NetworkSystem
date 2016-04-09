@@ -4,6 +4,7 @@ import com.blastercraft.mentimjojo.networksystem.Main;
 import com.blastercraft.mentimjojo.networksystem.core.*;
 import com.blastercraft.mentimjojo.networksystem.networkMenu.networkMenu;
 import com.blastercraft.mentimjojo.networksystem.selector.servers.Ctf;
+import com.blastercraft.mentimjojo.networksystem.selector.servers.Mobarena;
 import com.blastercraft.mentimjojo.networksystem.selector.servers.Paintball;
 import com.blastercraft.mentimjojo.networksystem.selector.servers.Survival;
 import org.bukkit.Bukkit;
@@ -12,6 +13,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
+import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.*;
 import org.bukkit.inventory.Inventory;
@@ -37,7 +39,6 @@ public class selectorEvents implements Listener {
             Selector.giveSelector(event.getPlayer());
         }
     }
-
 
     /*
     * On player inventory click
@@ -90,7 +91,7 @@ public class selectorEvents implements Listener {
                     // Close selector
                     player.closeInventory();
                     // Send message to player disabled
-                    Functions.sendPlayerMsg(player, "&CMobarena is closed.");
+                    Mobarena.openMenu(player);
                 } else if (clickedItem.getType() == Material.WOOL) {
                     // Close selector
                     player.closeInventory();

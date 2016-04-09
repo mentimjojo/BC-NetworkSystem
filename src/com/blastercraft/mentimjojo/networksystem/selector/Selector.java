@@ -4,6 +4,7 @@ package com.blastercraft.mentimjojo.networksystem.selector;
 import com.blastercraft.mentimjojo.networksystem.*;
 import com.blastercraft.mentimjojo.networksystem.core.*;
 import com.blastercraft.mentimjojo.networksystem.selector.servers.Ctf;
+import com.blastercraft.mentimjojo.networksystem.selector.servers.Mobarena;
 import com.blastercraft.mentimjojo.networksystem.selector.servers.Paintball;
 import com.blastercraft.mentimjojo.networksystem.selector.servers.Survival;
 import org.bukkit.Bukkit;
@@ -27,13 +28,14 @@ public class Selector {
         // Get item selector
         itemSelector = Items.createItem(Material.NAME_TAG, 1, "&B&LServer Selector", new String[]{"&FSelect the server you want to play on."});
         // Register selector events
-        Functions.registerEvents(main, new Paintball(), new Survival(), new Ctf());
+        Functions.registerEvents(main, new Paintball(), new Survival(), new Ctf(), new Mobarena());
         // Setup inventory
         setupInventory();
         // Setup server menus
         Survival.setupMenu();
         Paintball.setupMenu();
         Ctf.setupMenu();
+        Mobarena.setupMenu();
     }
 
     /*

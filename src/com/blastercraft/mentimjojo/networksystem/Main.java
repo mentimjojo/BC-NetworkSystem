@@ -7,6 +7,8 @@ import com.blastercraft.mentimjojo.networksystem.friends.*;
 import com.blastercraft.mentimjojo.networksystem.networkMenu.*;
 import com.blastercraft.mentimjojo.networksystem.selector.*;
 import com.blastercraft.mentimjojo.networksystem.toggler.*;
+import org.bukkit.Bukkit;
+import org.bukkit.World;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin {
@@ -41,6 +43,10 @@ public class Main extends JavaPlugin {
         registerClasses();
         // Register commands
         registerCommands();
+        // Lock time when needed
+        lockTime();
+        // Set gamerules
+        setGameRules();
         // Send console message
         Functions.sendConsoleMsg("NetworkSystem By Mentimjojo (Version: " + Settings.pluginVersion + ") is Enabled on Server : " + Settings.pluginServerName);
     }
@@ -95,5 +101,31 @@ public class Main extends JavaPlugin {
      */
     public void registerCommands(){
         this.getCommand("hub").setExecutor(new cmdHub());
+    }
+
+    /*
+    * Set gamerules
+     */
+    public void setGameRules(){
+        for(World w : Bukkit.getServer().getWorlds()){
+            w.setGameRuleValue("keepInventory", "true");
+        }
+    }
+
+
+    /*
+    Keep time on steady point
+     */
+    public void lockTime(){
+        if(!Settings.exServers.contains(Settings.pluginServerName)) {
+            getServer().getScheduler().scheduleSyncRepeatingTask(this, new Runnable() {
+                @Override
+                public void run() {
+                    for (World w : Bukkit.getServer().getWorlds()) {
+                        w.setTime(4300L);
+                    }
+                }
+            }, 0L, 1L);
+        }
     }
 }
