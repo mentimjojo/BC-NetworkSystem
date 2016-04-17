@@ -1,6 +1,7 @@
 package com.blastercraft.mentimjojo.networksystem;
 
 import com.blastercraft.mentimjojo.networksystem.commands.cmdHub;
+import com.blastercraft.mentimjojo.networksystem.commands.cmdNetworkMenu;
 import com.blastercraft.mentimjojo.networksystem.events.*;
 import com.blastercraft.mentimjojo.networksystem.core.*;
 import com.blastercraft.mentimjojo.networksystem.friends.*;
@@ -82,13 +83,11 @@ public class Main extends JavaPlugin {
      */
     public void registerEvents(){
         // Normal join/quit events
-        Functions.registerEvents(this, new playerJoinQuit(), new selectorEvents(this), new friendsEvents());
+        Functions.registerEvents(this, new playerJoinQuit(), new teleports(), new selectorEvents(this), new friendsEvents(), new networkMenuEvents());
 
         // Block inventory/weather
         if(!Settings.exServers.contains(Settings.pluginServerName)){
             Functions.registerEvents(this, new blockInvMovement(), new togglerEvents(this));
-        } else {
-            Functions.registerEvents(this, new networkMenuEvents());
         }
 
         if(Settings.Lobbys.contains(Settings.pluginServerName)){
@@ -101,6 +100,7 @@ public class Main extends JavaPlugin {
      */
     public void registerCommands(){
         this.getCommand("hub").setExecutor(new cmdHub());
+        this.getCommand("selector").setExecutor(new cmdNetworkMenu());
     }
 
     /*

@@ -24,8 +24,10 @@ public class networkMenuEvents implements Listener {
      */
     @EventHandler
     public void onJoin(PlayerJoinEvent event){
-        // Give item
-        networkMenu.giveNetworkMenuItem(event.getPlayer());
+        if(Settings.exServers.contains(Settings.pluginServerName)) {
+            // Give item
+            networkMenu.giveNetworkMenuItem(event.getPlayer());
+        }
     }
 
     /*
@@ -43,7 +45,7 @@ public class networkMenuEvents implements Listener {
             // Check in in
             if(Settings.exServers.contains(Settings.pluginServerName)) {
                 // Setup head
-                Friends.skullHead(event.getPlayer());
+                Friends.skullHead(player);
                 // Set item friends
                 networkMenu.networkInv.setItem(3, Friends.skull);
             }

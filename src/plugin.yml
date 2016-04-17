@@ -8,3 +8,6 @@ commands:
   hub:
     description: Sends you back to the hub.
     usage: /hub
+  selector:
+    description: Opens the network menu
+    usage: /selector

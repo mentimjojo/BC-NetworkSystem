@@ -3,6 +3,7 @@ package com.blastercraft.mentimjojo.networksystem.networkMenu;
 import com.blastercraft.mentimjojo.networksystem.Main;
 import com.blastercraft.mentimjojo.networksystem.core.Functions;
 import com.blastercraft.mentimjojo.networksystem.core.Items;
+import com.blastercraft.mentimjojo.networksystem.friends.Friends;
 import com.blastercraft.mentimjojo.networksystem.selector.Selector;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
