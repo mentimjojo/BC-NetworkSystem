@@ -18,7 +18,7 @@ public class teleports implements Listener {
     */
     @EventHandler
     public void teleportOnVoid(EntityDamageEvent event) {
-        if(Settings.pluginServerName.equals("paintball-1")) {
+        if (Settings.pluginServerName.equals("paintball-1")) {
             if (event.getEntity() instanceof Player) {
                 if (event.getCause().equals(EntityDamageEvent.DamageCause.VOID)) {
                     event.getEntity().teleport(paintball_spawn);
