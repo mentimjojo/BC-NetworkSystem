@@ -24,4 +24,7 @@ public class Settings {
     // Server lobbys
     public static ArrayList<String> Lobbys = new ArrayList<String>();
 
+    // Slot count selector
+    public static int selectorSlots = 27;
+
 }

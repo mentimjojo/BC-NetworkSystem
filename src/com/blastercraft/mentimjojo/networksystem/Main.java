@@ -39,7 +39,7 @@ public class Main extends JavaPlugin {
         // Register global events
         registerEvents();
         // Register BungeeCord channel
-        getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
+        Bukkit.getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
         // Register classes
         registerClasses();
         // Register commands
