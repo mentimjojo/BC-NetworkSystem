@@ -27,5 +27,4 @@ public class teleports implements Listener {
             }
         }
     }
-
 }
