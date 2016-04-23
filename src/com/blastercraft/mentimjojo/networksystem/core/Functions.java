@@ -28,7 +28,7 @@ public class Functions {
         // Get general data
         getGeneralData(main);
         // Ex servers
-        addExServers();
+        addServers();
     }
 
     /*
@@ -64,11 +64,12 @@ public class Functions {
     /*
     * Add ex servers
      */
-    private static void addExServers(){
+    private static void addServers(){
         // Add servers
         Settings.exServers.add("survival-1");
         Settings.exServers.add("survival-2");
         Settings.exServers.add("bouw-1");
+        Settings.exServers.add("skyblock-1");
         // Add lobbys
         Settings.Lobbys.add("lobby-1");
     }

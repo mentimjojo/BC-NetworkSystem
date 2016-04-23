@@ -18,8 +18,11 @@ public class Settings {
     // Server name where plugin is running
     public static String pluginServerName;
 
-    // Servers where selector is not in hotbar
+    // Servers where nothing in inventory
     public static ArrayList<String> exServers = new ArrayList<String>();
+
+    // Servers where emerald in inventory
+    public static ArrayList<String> emeraldServers = new ArrayList<String>();
 
     // Server lobbys
     public static ArrayList<String> Lobbys = new ArrayList<String>();

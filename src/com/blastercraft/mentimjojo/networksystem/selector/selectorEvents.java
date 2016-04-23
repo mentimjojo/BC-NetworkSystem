@@ -3,10 +3,7 @@ package com.blastercraft.mentimjojo.networksystem.selector;
 import com.blastercraft.mentimjojo.networksystem.Main;
 import com.blastercraft.mentimjojo.networksystem.core.*;
 import com.blastercraft.mentimjojo.networksystem.networkMenu.networkMenu;
-import com.blastercraft.mentimjojo.networksystem.selector.servers.Ctf;
-import com.blastercraft.mentimjojo.networksystem.selector.servers.Mobarena;
-import com.blastercraft.mentimjojo.networksystem.selector.servers.Paintball;
-import com.blastercraft.mentimjojo.networksystem.selector.servers.Survival;
+import com.blastercraft.mentimjojo.networksystem.selector.servers.*;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -97,6 +94,11 @@ public class selectorEvents implements Listener {
                     player.closeInventory();
                     // Open servers
                     Ctf.openMenu(player);
+                } else if(clickedItem.getType() == Material.GRASS){
+                    // Close selector
+                    player.closeInventory();
+                    // Open servers
+                    Skyblock.openMenu(player);
                 } else if(clickedItem.getType() == Material.COMPASS){
                     // Close inventory
                     player.closeInventory();

@@ -52,6 +52,8 @@ public class Selector {
         Items.createMenuItem(invSelector, Material.SKULL_ITEM, 1, 4, "&A&LMobarena", new String[]{"&FYour are being hunted by mobs...", "&FKill them all!"});
         // Add capturetheflag
         Items.createMenuItem(invSelector, Material.WOOL, 1, 6, "&A&LCapture The Flag", new String[]{"&FCapture the enemy's flag but watch out", "&Fthat your own flag is getting captured!"});
+        // Add skyblock
+        Items.createMenuItem(invSelector, Material.GRASS, 1, 8, "&A&LSkyblock", new String[]{"&FCan you survive lonely on a small island?!", "Or need your help of your friends?! Find it out now!"});
         // Set back to hub item when not on hub
         if(!Settings.Lobbys.contains(Settings.pluginServerName)){
             // Add back to hub item

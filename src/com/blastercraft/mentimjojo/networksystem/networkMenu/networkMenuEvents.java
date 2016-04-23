@@ -24,7 +24,7 @@ public class networkMenuEvents implements Listener {
      */
     @EventHandler
     public void onJoin(PlayerJoinEvent event){
-        if(Settings.exServers.contains(Settings.pluginServerName)) {
+        if(Settings.emeraldServers.contains(Settings.pluginServerName) && !Settings.exServers.contains(Settings.pluginServerName)) {
             // Give item
             networkMenu.giveNetworkMenuItem(event.getPlayer());
         }
@@ -43,7 +43,7 @@ public class networkMenuEvents implements Listener {
             // Cancel event
             event.setCancelled(true);
             // Check in in
-            if(Settings.exServers.contains(Settings.pluginServerName)) {
+            if(Settings.emeraldServers.contains(Settings.pluginServerName) && !Settings.exServers.contains(Settings.pluginServerName)) {
                 // Setup head
                 Friends.skullHead(player);
                 // Set item friends
@@ -95,9 +95,11 @@ public class networkMenuEvents implements Listener {
     */
     @EventHandler
     public void invClick(InventoryClickEvent event) {
-        if(event.getCurrentItem() != null) {
-            if (event.getCurrentItem().isSimilar(networkMenu.networkItem)) {
-                event.setCancelled(true);
+        if(Settings.emeraldServers.contains(Settings.pluginServerName) && !Settings.exServers.contains(Settings.pluginServerName)) {
+            if (event.getCurrentItem() != null) {
+                if (event.getCurrentItem().isSimilar(networkMenu.networkItem)) {
+                    event.setCancelled(true);
+                }
             }
         }
     }
@@ -107,8 +109,10 @@ public class networkMenuEvents implements Listener {
     */
     @EventHandler
     public void onDrop(PlayerDropItemEvent event) {
-        if(event.getItemDrop().getItemStack().isSimilar(networkMenu.networkItem)) {
-            event.setCancelled(true);
+        if(Settings.emeraldServers.contains(Settings.pluginServerName) && !Settings.exServers.contains(Settings.pluginServerName)) {
+            if (event.getItemDrop().getItemStack().isSimilar(networkMenu.networkItem)) {
+                event.setCancelled(true);
+            }
         }
     }
 
@@ -117,9 +121,11 @@ public class networkMenuEvents implements Listener {
     */
     @EventHandler
     public void onSwapItems(PlayerSwapHandItemsEvent event) {
-        // So nobody can swipe items
-        if(event.getOffHandItem().isSimilar(networkMenu.networkItem)) {
-            event.setCancelled(true);
+        if(Settings.emeraldServers.contains(Settings.pluginServerName) && !Settings.exServers.contains(Settings.pluginServerName)) {
+            // So nobody can swipe items
+            if (event.getOffHandItem().isSimilar(networkMenu.networkItem)) {
+                event.setCancelled(true);
+            }
         }
     }
 }
