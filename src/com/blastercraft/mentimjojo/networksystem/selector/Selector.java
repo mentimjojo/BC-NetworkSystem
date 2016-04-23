@@ -3,10 +3,7 @@ package com.blastercraft.mentimjojo.networksystem.selector;
 
 import com.blastercraft.mentimjojo.networksystem.*;
 import com.blastercraft.mentimjojo.networksystem.core.*;
-import com.blastercraft.mentimjojo.networksystem.selector.servers.Ctf;
-import com.blastercraft.mentimjojo.networksystem.selector.servers.Mobarena;
-import com.blastercraft.mentimjojo.networksystem.selector.servers.Paintball;
-import com.blastercraft.mentimjojo.networksystem.selector.servers.Survival;
+import com.blastercraft.mentimjojo.networksystem.selector.servers.*;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -28,7 +25,7 @@ public class Selector {
         // Get item selector
         itemSelector = Items.createItem(Material.NAME_TAG, 1, "&B&LServer Selector", new String[]{"&FSelect the server you want to play on."});
         // Register selector events
-        Functions.registerEvents(main, new Paintball(), new Survival(), new Ctf(), new Mobarena());
+        Functions.registerEvents(main, new Paintball(), new Survival(), new Ctf(), new Mobarena(), new Skyblock());
         // Setup inventory
         setupInventory();
         // Setup server menus
@@ -36,6 +33,7 @@ public class Selector {
         Paintball.setupMenu();
         Ctf.setupMenu();
         Mobarena.setupMenu();
+        Skyblock.setupMenu();
     }
 
     /*
@@ -53,7 +51,7 @@ public class Selector {
         // Add capturetheflag
         Items.createMenuItem(invSelector, Material.WOOL, 1, 6, "&A&LCapture The Flag", new String[]{"&FCapture the enemy's flag but watch out", "&Fthat your own flag is getting captured!"});
         // Add skyblock
-        Items.createMenuItem(invSelector, Material.GRASS, 1, 8, "&A&LSkyblock", new String[]{"&FCan you survive lonely on a small island?!", "Or need your help of your friends?! Find it out now!"});
+        Items.createMenuItem(invSelector, Material.GRASS, 1, 8, "&A&LSkyblock", new String[]{"&FCan you survive lonely on a small island?!", "&FOr need your help of your friends?! Find it out now!"});
         // Set back to hub item when not on hub
         if(!Settings.Lobbys.contains(Settings.pluginServerName)){
             // Add back to hub item
